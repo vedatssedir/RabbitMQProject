@@ -20,8 +20,6 @@ namespace RabbitMQWeb.Watermark.Services
             _logger = logger;
             Connect();
         }
-
-
         public IModel Connect()
         {
             _connection = _connectionFactory.CreateConnection();
