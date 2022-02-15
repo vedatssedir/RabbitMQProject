@@ -9,16 +9,15 @@ namespace RabbitMQWeb.Watermark.Services
         private readonly ConnectionFactory _connectionFactory;
         private IConnection _connection;
         private IModel _channel;
-        public const string ExchangeName = "ImageDirectExchange";
-        public const string RoutingWatermark = "watermark-route-image";
-        public const string QueueName = "queue-watermark-image";
+        public static string ExchangeName = "ImageDirectExchange";
+        public static string RoutingWatermark = "watermark-route-image";
+        public static string QueueName = "queue-watermark-image";
         private readonly ILogger<RabbitMqClientService> _logger;
 
         public RabbitMqClientService(ConnectionFactory connectionFactory, ILogger<RabbitMqClientService> logger)
         {
             _connectionFactory = connectionFactory;
             _logger = logger;
-            Connect();
         }
         public IModel Connect()
         {
@@ -42,7 +41,7 @@ namespace RabbitMQWeb.Watermark.Services
             _channel?.Dispose();
             _connection?.Close();
             _connection?.Dispose();
-            _logger.LogInformation("RabbitMQ ile baglantı kopt");
+            _logger.LogInformation("RabbitMQ ile baglantı koptu");
         }
     }
 }

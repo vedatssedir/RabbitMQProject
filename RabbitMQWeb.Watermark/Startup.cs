@@ -28,6 +28,7 @@ namespace RabbitMQWeb.Watermark
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("ProductDb"));
             services.AddSingleton(sp => new ConnectionFactory() { Uri = new Uri(Configuration.GetConnectionString("RabbitMQ")) });
             services.AddSingleton<RabbitMqClientService>();
+            services.AddSingleton<RabbitMqPublisher>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
